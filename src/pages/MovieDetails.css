@@ -1,0 +1,123 @@
+.details-page {
+  background: #0d0d0d;
+  min-height: 100vh;
+  color: white;
+}
+
+.details-hero {
+  width: 100%;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.details-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent, #0d0d0d);
+}
+
+.details-content {
+  display: flex;
+  gap: 40px;
+  padding: 0 40px 40px;
+  margin-top: -120px;
+  position: relative;
+}
+
+.details-poster {
+  width: 220px;
+  height: 330px;
+  object-fit: cover;
+  border-radius: 12px;
+  flex-shrink: 0;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+}
+
+.details-info {
+  flex: 1;
+  padding-top: 120px;
+}
+
+.details-info h1 {
+  font-size: 2rem;
+  margin: 0 0 12px;
+}
+
+.details-meta {
+  display: flex;
+  gap: 20px;
+  color: #ccc;
+  font-size: 1rem;
+  margin-bottom: 16px;
+}
+
+.genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.genre-tag {
+  background: #e50914;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+}
+
+.overview {
+  color: #ccc;
+  line-height: 1.7;
+  max-width: 700px;
+  margin-bottom: 32px;
+}
+
+.trailer iframe {
+  width: 100%;
+  max-width: 700px;
+  height: 380px;
+  border-radius: 12px;
+  border: none;
+  margin-top: 12px;
+}
+
+.cast h3, .trailer h3 {
+  margin-bottom: 16px;
+  font-size: 1.2rem;
+}
+
+.cast-list {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.actor {
+  text-align: center;
+  width: 90px;
+}
+
+.actor img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 6px;
+}
+
+.actor p {
+  font-size: 0.8rem;
+  color: #ccc;
+  margin: 0;
+}
+
+.loading {
+  color: white;
+  text-align: center;
+  padding: 100px;
+  font-size: 1.5rem;
+  background: #0d0d0d;
+  min-height: 100vh;
+}
