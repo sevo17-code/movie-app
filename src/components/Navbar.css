@@ -1,53 +1,143 @@
-.navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16px 32px;
-  background-color: #0d0d0d;
+.navbar-wrap {
   position: sticky;
   top: 0;
-  z-index: 100;
-  border-bottom: 1px solid #222;
+  z-index: 40;
+  backdrop-filter: blur(12px);
+  background: color-mix(in srgb, var(--bg) 72%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 72%, transparent);
+}
+
+.navbar {
+  width: min(1240px, 94vw);
+  margin: 0 auto;
+  min-height: 78px;
+  display: grid;
+  align-items: center;
+  grid-template-columns: auto auto 1fr auto;
+  gap: 16px;
 }
 
 .logo {
-  color: #e50914;
-  font-size: 1.8rem;
+  border: 0;
+  background: none;
+  color: var(--primary);
+  font-family: "Bebas Neue", "Segoe UI", sans-serif;
+  font-size: 2rem;
+  letter-spacing: 0.06em;
   cursor: pointer;
-  margin: 0;
+  padding: 0;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-links a {
+  color: var(--text-muted);
+  padding: 10px 14px;
+  border-radius: 999px;
+  transition: 180ms ease;
+  border: 1px solid transparent;
+}
+
+.nav-links a:hover {
+  color: var(--text);
+  border-color: var(--border);
+  background: color-mix(in srgb, var(--surface) 70%, transparent);
+}
+
+.nav-links a.active {
+  color: var(--text);
+  background: color-mix(in srgb, var(--primary) 16%, var(--surface));
+  border-color: color-mix(in srgb, var(--primary) 54%, var(--border));
+}
+
+.nav-watchlist {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.watch-count {
+  min-width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  display: inline-grid;
+  place-items: center;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #111;
+  background: var(--accent);
 }
 
 .search-form {
   display: flex;
-  gap: 8px;
 }
 
 .search-form input {
-  padding: 8px 16px;
-  border-radius: 20px;
-  border: none;
-  background: #222;
-  color: white;
-  width: 260px;
-  font-size: 0.95rem;
+  width: min(100%, 420px);
+  margin-left: auto;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface) 80%, transparent);
+  color: var(--text);
+  padding: 10px 16px;
   outline: none;
+  transition: 180ms ease;
 }
 
-.search-form input::placeholder {
-  color: #888;
+.search-form input:focus {
+  border-color: color-mix(in srgb, var(--primary) 60%, var(--border));
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 18%, transparent);
 }
 
-.search-form button {
-  padding: 8px 20px;
-  border-radius: 20px;
-  border: none;
-  background: #e50914;
-  color: white;
+.theme-toggle {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface-2) 80%, transparent);
+  color: var(--text);
+  min-width: 78px;
+  padding: 10px 14px;
   cursor: pointer;
-  font-size: 0.95rem;
-  transition: background 0.2s;
+  transition: 180ms ease;
 }
 
-.search-form button:hover {
-  background: #b20710;
+.theme-toggle:hover {
+  border-color: color-mix(in srgb, var(--primary) 50%, var(--border));
+  box-shadow: var(--shadow-soft);
+}
+
+@media (max-width: 960px) {
+  .navbar {
+    grid-template-columns: auto auto;
+    grid-template-areas:
+      "logo theme"
+      "links links"
+      "search search";
+    gap: 10px;
+    padding: 12px 0 14px;
+  }
+
+  .logo {
+    grid-area: logo;
+  }
+
+  .theme-toggle {
+    grid-area: theme;
+    margin-left: auto;
+  }
+
+  .nav-links {
+    grid-area: links;
+  }
+
+  .search-form {
+    grid-area: search;
+  }
+
+  .search-form input {
+    width: 100%;
+  }
 }

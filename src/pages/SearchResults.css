@@ -1,38 +1,31 @@
 .search-page {
-  background: #0d0d0d;
-  min-height: 100vh;
-  padding: 40px 32px;
-  color: white;
+  padding-top: 20px;
 }
 
-.search-title {
-  font-size: 1.5rem;
-  margin-bottom: 24px;
-  color: #ccc;
+.search-header {
+  margin-bottom: 12px;
 }
 
-.search-title span {
-  color: #e50914;
+.search-input-wrap {
+  margin: 16px 0 22px;
 }
 
-.no-results {
-  color: #888;
-  font-size: 1.2rem;
-  text-align: center;
-  margin-top: 80px;
+.search-input-wrap input {
+  width: min(560px, 100%);
+  padding: 12px 15px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  outline: none;
+  background: color-mix(in srgb, var(--surface) 86%, transparent);
+  color: var(--text);
+  transition: 180ms ease;
 }
 
-.loading {
-  color: white;
-  text-align: center;
-  padding: 100px;
-  font-size: 1.5rem;
-  background: #0d0d0d;
-  min-height: 100vh;
+.search-input-wrap input:focus {
+  border-color: color-mix(in srgb, var(--primary) 58%, var(--border));
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 14%, transparent);
 }
 
-.movies-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 20px;
+.search-page .card-grid {
+  margin-top: 12px;
 }

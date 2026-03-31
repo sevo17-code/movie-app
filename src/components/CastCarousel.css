@@ -1,0 +1,55 @@
+.cast-carousel-wrap {
+  margin-top: 14px;
+}
+
+.cast-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.cast-controls button {
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface) 80%, transparent);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 6px 11px;
+  cursor: pointer;
+}
+
+.cast-carousel {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(130px, 1fr);
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scroll-snap-type: x mandatory;
+}
+
+.cast-card {
+  scroll-snap-align: start;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--surface) 85%, transparent);
+}
+
+.cast-card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.cast-card h4 {
+  margin: 8px 8px 0;
+  font-size: 0.9rem;
+  line-height: 1.3;
+}
+
+.cast-card p {
+  margin: 5px 8px 9px;
+  color: var(--text-muted);
+  font-size: 0.76rem;
+}
