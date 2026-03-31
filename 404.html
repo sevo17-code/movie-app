@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting...</title>
+    <script>
+      (function () {
+        var pathSegmentsToKeep = 1;
+        var locationRef = window.location;
+        var origin =
+          locationRef.protocol +
+          "//" +
+          locationRef.hostname +
+          (locationRef.port ? ":" + locationRef.port : "");
+        var pathParts = locationRef.pathname.slice(1).split("/");
+        var basePath =
+          "/" + pathParts.slice(0, pathSegmentsToKeep).join("/") + "/";
+        var routePath = pathParts.slice(pathSegmentsToKeep).join("/");
+        var search = locationRef.search
+          ? locationRef.search.slice(1).replace(/&/g, "~and~")
+          : "";
+        var routeQuery = routePath ? "/" + routePath : "/";
+        var queryString = search ? routeQuery + "&" + search : routeQuery;
+
+        locationRef.replace(origin + basePath + "?" + queryString + locationRef.hash);
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>

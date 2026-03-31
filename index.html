@@ -5,8 +5,27 @@
     <link rel="icon" type="image/svg+xml" href="/movie-app/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>movie-app</title>
-    <script type="module" crossorigin src="/movie-app/assets/index-BmAhAr_a.js"></script>
-    <link rel="stylesheet" crossorigin href="/movie-app/assets/index-1B8kEBGz.css">
+    <script>
+      (function (location) {
+        if (location.search[1] === "/") {
+          var decoded = location.search
+            .slice(1)
+            .split("&")
+            .map(function (part) {
+              return part.replace(/~and~/g, "&");
+            })
+            .join("?");
+          window.history.replaceState(
+            null,
+            "",
+            location.pathname.slice(0, -1) + decoded + location.hash
+          );
+        }
+      })(window.location);
+    </script>
+    <script type="module" crossorigin src="/movie-app/assets/index-B8Gma80j.js"></script>
+    <link rel="modulepreload" crossorigin href="/movie-app/assets/WatchlistContext-BQlF-YoR.js">
+    <link rel="stylesheet" crossorigin href="/movie-app/assets/index-BbV_omLF.css">
   </head>
   <body>
     <div id="root"></div>
