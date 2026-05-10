@@ -49,6 +49,51 @@
   font-size: clamp(1.6rem, 2.6vw, 2.5rem);
 }
 
+.rating-panel {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.rating-panel > div {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--surface-2) 86%, transparent);
+  padding: 12px;
+}
+
+.rating-panel__label {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  margin-bottom: 5px;
+}
+
+.rating-panel strong,
+.rating-panel a {
+  color: var(--accent);
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.rating-panel a:hover {
+  color: #fff;
+}
+
+.rating-panel small {
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.rating-panel__imdb {
+  border-color: color-mix(in srgb, var(--accent) 42%, var(--border));
+}
+
 .details-meta {
   margin-top: 10px;
   display: flex;
@@ -119,6 +164,71 @@
 
 .details-section {
   margin-top: 24px;
+}
+
+.translation-tags {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.translation-tag {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface-2) 78%, transparent);
+  color: var(--text);
+  padding: 7px 11px;
+  font-size: 0.82rem;
+}
+
+.muted-text {
+  color: var(--text-muted);
+}
+
+.season-tabs {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.season-tabs button {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface-2) 80%, transparent);
+  color: var(--text);
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.season-tabs button.active {
+  border-color: color-mix(in srgb, var(--primary) 50%, var(--border));
+  background: color-mix(in srgb, var(--primary) 16%, var(--surface));
+}
+
+.episodes-list {
+  margin-top: 14px;
+  display: grid;
+  gap: 10px;
+}
+
+.episode-item {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  background: color-mix(in srgb, var(--surface-2) 75%, transparent);
+}
+
+.episode-item h4 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.episode-item p {
+  margin: 8px 0 0;
+  color: var(--accent);
+  font-weight: 700;
 }
 
 .details-loading {

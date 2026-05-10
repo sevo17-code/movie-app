@@ -22,22 +22,6 @@
   --radius-sm: 10px;
 }
 
-:root[data-theme="light"] {
-  --secondary: #f7f8ff;
-  --gradient-hero: linear-gradient(180deg, rgba(247, 248, 255, 0) 0%, #f7f8ff 100%);
-
-  --bg: #f4f6fc;
-  --bg-soft: #ffffff;
-  --surface: #ffffff;
-  --surface-2: #eef1fb;
-  --text: #171a29;
-  --text-muted: #53607b;
-  --border: #d7deef;
-
-  --shadow-soft: 0 20px 45px rgba(24, 33, 69, 0.12);
-  --shadow-glow: 0 14px 34px rgba(229, 9, 20, 0.2);
-}
-
 * {
   box-sizing: border-box;
 }

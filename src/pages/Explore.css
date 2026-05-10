@@ -1,0 +1,37 @@
+.explore-page {
+  padding-top: 20px;
+}
+
+.explore-header {
+  margin-bottom: 14px;
+}
+
+.explore-type-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.explore-type-tabs button,
+.genres-filter button {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface-2) 80%, transparent);
+  color: var(--text);
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.explore-type-tabs button.active,
+.genres-filter button.active {
+  border-color: color-mix(in srgb, var(--primary) 50%, var(--border));
+  background: color-mix(in srgb, var(--primary) 16%, var(--surface));
+}
+
+.genres-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}

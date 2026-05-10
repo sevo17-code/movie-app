@@ -7,15 +7,17 @@ export function ThemeProvider({ children }) {
   const [theme, setTheme] = useLocalStorage("movie_app_theme", "dark");
 
   useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
-  }, [theme]);
+    document.documentElement.setAttribute("data-theme", "dark");
+    if (theme !== "dark") {
+      setTheme("dark");
+    }
+  }, [setTheme, theme]);
 
   const value = useMemo(
     () => ({
       theme,
       setTheme,
-      toggleTheme: () =>
-        setTheme((prev) => (prev === "dark" ? "light" : "dark")),
+      toggleTheme: () => setTheme("dark"),
     }),
     [theme, setTheme]
   );

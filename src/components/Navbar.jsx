@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { useTheme } from "../context/ThemeContext";
+import { useTranslation } from "react-i18next";
+import LanguageSwitcher from "./LanguageSwitcher";
 import { useWatchlist } from "../context/WatchlistContext";
 import "./Navbar.css";
 
 function Navbar() {
   const navigate = useNavigate();
-  const { theme, toggleTheme } = useTheme();
+  const { t } = useTranslation();
   const { count } = useWatchlist();
-
   const [query, setQuery] = useState("");
 
   const handleSearch = (e) => {
@@ -27,13 +27,31 @@ function Navbar() {
 
         <div className="nav-links">
           <NavLink to="/" className={({ isActive }) => (isActive ? "active" : "")}>
-            Home
+            {t("nav_home")}
+          </NavLink>
+          <NavLink to="/top-movies" className={({ isActive }) => (isActive ? "active" : "")}>
+            {t("nav_top_movies")}
+          </NavLink>
+          <NavLink to="/top-series" className={({ isActive }) => (isActive ? "active" : "")}>
+            {t("nav_top_series")}
+          </NavLink>
+          <NavLink to="/explore" className={({ isActive }) => (isActive ? "active" : "")}>
+            {t("nav_explore")}
+          </NavLink>
+          <NavLink to="/random" className={({ isActive }) => (isActive ? "active" : "")}>
+            {t("nav_random")}
+          </NavLink>
+          <NavLink to="/world-cinema" className={({ isActive }) => (isActive ? "active" : "")}>
+            {t("nav_world_cinema")}
+          </NavLink>
+          <NavLink to="/compare" className={({ isActive }) => (isActive ? "active" : "")}>
+            {t("nav_compare")}
           </NavLink>
           <NavLink
             to="/watchlist"
             className={({ isActive }) => (isActive ? "active nav-watchlist" : "nav-watchlist")}
           >
-            Watchlist
+            {t("nav_watchlist")}
             {count > 0 && <span className="watch-count">{count}</span>}
           </NavLink>
         </div>
@@ -41,20 +59,13 @@ function Navbar() {
         <form className="search-form" onSubmit={handleSearch}>
           <input
             type="search"
-            placeholder="Search for movies..."
+            placeholder={t("nav_search_placeholder")}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
         </form>
 
-        <button
-          className="theme-toggle"
-          onClick={toggleTheme}
-          aria-label="Toggle theme"
-          title="Toggle theme"
-        >
-          {theme === "dark" ? "Light" : "Dark"}
-        </button>
+        <LanguageSwitcher />
       </nav>
     </header>
   );

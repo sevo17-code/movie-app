@@ -1,9 +1,11 @@
 import { useRef } from "react";
+import { useTranslation } from "react-i18next";
 import MovieCard from "./MovieCard";
 import "./MovieRow.css";
 
 function MovieRow({ title, subtitle, movies = [] }) {
   const rowRef = useRef(null);
+  const { t } = useTranslation();
 
   if (!movies.length) return null;
 
@@ -21,11 +23,11 @@ function MovieRow({ title, subtitle, movies = [] }) {
         </div>
 
         <div className="movie-row__controls">
-          <button onClick={() => shift(-1)} aria-label={`Scroll ${title} left`}>
-            Prev
+          <button onClick={() => shift(-1)} aria-label={t("scroll_left_label", { title })}>
+            {t("scroll_prev")}
           </button>
-          <button onClick={() => shift(1)} aria-label={`Scroll ${title} right`}>
-            Next
+          <button onClick={() => shift(1)} aria-label={t("scroll_right_label", { title })}>
+            {t("scroll_next")}
           </button>
         </div>
       </header>

@@ -23,5 +23,4 @@ dist-ssr
 *.sln
 *.sw?
 .env
-kimi-codes.txt
-
+DEEPSEEK_PROJECT_CONTEXT.md

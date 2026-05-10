@@ -1,11 +1,13 @@
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { BACKDROP_URL } from "../services/api";
 import RatingCounter from "./RatingCounter";
 import "./HeroBanner.css";
 
 function HeroBanner({ movie, onWatchTrailer }) {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const MotionDiv = motion.div;
 
   if (!movie) {
@@ -27,25 +29,25 @@ function HeroBanner({ movie, onWatchTrailer }) {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.45 }}
       >
-        <p className="hero-banner__eyebrow">Now Trending</p>
+        <p className="hero-banner__eyebrow">{t("hero_eyebrow")}</p>
         <h1>{movie.title}</h1>
         <p>{movie.overview}</p>
 
         <div className="hero-banner__meta">
           <span className="chip">
-            Rating <RatingCounter value={movie.vote_average ?? 0} />
+            {t("rating")} <RatingCounter value={movie.vote_average ?? 0} />
           </span>
-          <span className="chip">{movie.release_date?.slice(0, 4) || "Upcoming"}</span>
+          <span className="chip">{movie.release_date?.slice(0, 4) || t("upcoming")}</span>
         </div>
 
         <div className="hero-banner__actions">
-          <button onClick={() => navigate(`/movie/${movie.id}`)}>Explore Movie</button>
+          <button onClick={() => navigate(`/movie/${movie.id}`)}>{t("hero_explore_movie")}</button>
           <button
             className="secondary"
             onClick={() => onWatchTrailer(movie)}
             disabled={!onWatchTrailer}
           >
-            Play Trailer
+            {t("hero_play_trailer")}
           </button>
         </div>
       </MotionDiv>
